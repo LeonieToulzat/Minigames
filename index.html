@@ -3,13 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-size: 100%;
+            background-image: url('sky.png');
+        }
+
+        .button1 img {
+            position: absolute;
+            left: 500px;
+            bottom: 200px;
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            
+        }
+
+        .button1 img:hover {
+            width: 90px;
+            height: 90px;
+        }
+
+        .button2 img {
+            position: absolute;
+            left: 900px;
+            bottom: 300px;
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            
+        }
+
+        .button2 img:hover {
+            width: 90px;
+            height: 90px;
+        }
+        
+
+    </style>
 </head>
 <body>
-    
-    
-    
-    <script src="welcome.js"></script>
+    <button id="button1" class="button1 img">
+        <img src="button1.png" alt="button1">
+    </button>
+    <button id="button2" class="button2 img">
+        <img src="button2.png" alt="button2">
+    </button>
+    <script>
+        
+        document.getElementById("button1").addEventListener("click", function() {
+            document.location.href = "catch.html";
+        });
+        document.getElementById("button2").addEventListener("click", function() {
+            document.location.href = "chrome.html";
+        });
+    </script>
 </body>
 </html>
 

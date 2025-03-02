@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('skyandground.png') no-repeat center center/cover;
+    background-size: 100%;
+    
+}
+
+canvas {
+    display: block;
+}

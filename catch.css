@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('skyandground.png') no-repeat center center/cover;
+    background-size: 100%;
+    /*font-family: "Pixelify Sans", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;*/
+}
+
+canvas {
+    display: block;
+}
