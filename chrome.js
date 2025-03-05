@@ -25,8 +25,10 @@ const obstacleImages = ["bush.png", "fence.png"];
 let speed = 5;
 let gameRunning = true;
 let score = 0;
+let gameOver = false;
 
 function spawnObstacle() {
+    if (speed<=8){
     const count = Math.floor(Math.random() * 2) + 1;
     for (let i = 0; i < count; i++) {
         const obstacle = {
@@ -38,16 +40,48 @@ function spawnObstacle() {
         };
         obstacle.image.src = obstacleImages[Math.floor(Math.random() * obstacleImages.length)];
         obstacles.push(obstacle);
+        }
+        setTimeout(spawnObstacle, Math.random() * 2000 + 1200);
     }
-    setTimeout(spawnObstacle, Math.random() * 2000 + 1200);
+    else if (speed<=12) {
+        const count = Math.floor(Math.random() * 3) + 1;
+        for (let i = 0; i < count; i++) {
+            const obstacle = {
+                x: canvas.width + i * 80,
+                y: canvas.height - 120,
+                width: 60,
+                height: 50,
+                image: new Image()
+            };
+            obstacle.image.src = obstacleImages[Math.floor(Math.random() * obstacleImages.length)];
+            obstacles.push(obstacle);
+        }
+        setTimeout(spawnObstacle, Math.random() * 2000 + 1000);
+    }
+    else if (speed>12) {
+        const count = Math.floor(Math.random() * 5) + 1;
+        for (let i = 0; i < count; i++) {
+            const obstacle = {
+                x: canvas.width + i * 80,
+                y: canvas.height - 120,
+                width: 60,
+                height: 50,
+                image: new Image()
+            };
+            obstacle.image.src = obstacleImages[Math.floor(Math.random() * obstacleImages.length)];
+            obstacles.push(obstacle);
+        }
+        setTimeout(spawnObstacle, Math.random() * 2000 + 800);
+    }
+    //setTimeout(spawnObstacle, Math.random() * 2000 + 1200);
 }
 
 function jump() {
-    if (!fox.jumping) {
+    //if (!fox.jumping) {
         fox.velocityY = -25;
         fox.jumping = true;
         fox.currentImage = fox.images.moving;
-    }
+    //}
 }
 
 function update() {
@@ -70,12 +104,12 @@ function update() {
         }
         
         if (
-            fox.x < obstacle.x + obstacle.width &&
+            fox.x < obstacle.x + obstacle.width - 40 &&
             fox.x + fox.width > obstacle.x &&
             fox.y + fox.height > obstacle.y
         ) {
             gameRunning = false;
-            alert("Game Over!");
+            gameOver = true;
         }
     });
     
@@ -89,6 +123,10 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.font = "40px Pixelify Sans";
     ctx.fillText("Score: " + score, 30, 50);
+    ctx.fillText("Speed: " + speed, 30, 200);
+    if (gameOver) {
+        ctx.fillText("Game Over", canvas.width / 2 - 50, canvas.height / 2);
+    }
 }
 
 function gameLoop() {

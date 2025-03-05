@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('sky.png') no-repeat center center/cover;
+}
+
+canvas {
+    display: block;
+}
