@@ -60,7 +60,7 @@ function jump(event) {
 }
 
 function update() {
-    fox.currentImage = fox.images.image1;
+    //fox.currentImage = fox.images.image1;
     fox.velocityY += fox.gravity;
     fox.y += fox.velocityY;
     
@@ -117,19 +117,24 @@ function gameLoop() {
     }
 }
 
-/*function changeImage() {
+function changeImage() {
     if (fox.currentImage === fox.images.image1) {
         fox.currentImage = fox.images.image2;
     }
     else if (fox.currentImage === fox.images.image2) {
         fox.currentImage = fox.images.image1;
     }
-} */
+}
+/*
 function changeImage() {
     fox.currentImage = fox.currentImage === fox.images.image1 ? fox.images.image2 : fox.images.image1;
-}
-setInterval(changeImage, 1000);
+}*/
 
+setInterval(changeImage, 200);
 setInterval(spawnPipes, 3000);
 window.addEventListener("keydown", jump);
 gameLoop();
+
+document.getElementById("buttonhome").addEventListener("click", function() {
+    document.location.href = "index.html";
+});

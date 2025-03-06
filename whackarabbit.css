@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('ground.png') no-repeat center center/cover;
+    cursor: none;
+}
+/*
+#game-container {
+    position: absolute;
+    size: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}*/
+/*
+#background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}*/
+
+#score {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    font: Pixelify Sans;
+    font-family: Pixelify Sans;
+    font-size: 40px;
+    color: white;
+}
+
+.hole {
+    position: absolute;
+    width: 160px;
+    height: 100px;
+    background: url("hole.png") no-repeat center;
+    background-size: contain;
+}
+
+.rabbit {
+    position: absolute;
+    width: 80px;
+    height: 137px;
+    
+    display: none;
+}
+
+#fox {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    pointer-events: none; 
+    transition: transform 0.1s;
+}
+
+.buttonhome img {
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    
+}
+
+.buttonhome img:hover {
+    width: 90px;
+    height: 90px;
+}

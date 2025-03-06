@@ -141,3 +141,7 @@ window.addEventListener("keydown", (event) => {
 
 spawnObstacle();
 gameLoop();
+
+document.getElementById("buttonhome").addEventListener("click", function() {
+    document.location.href = "index.html";
+});

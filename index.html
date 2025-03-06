@@ -40,6 +40,36 @@
             width: 90px;
             height: 90px;
         }
+
+        .button3 img {
+            position: absolute;
+            left: 1300px;
+            bottom: 250px;
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            
+        }
+
+        .button3 img:hover {
+            width: 90px;
+            height: 90px;
+        }
+
+        .button4 img {
+            position: absolute;
+            left: 1200px;
+            bottom: 500px;
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            
+        }
+
+        .button4 img:hover {
+            width: 90px;
+            height: 90px;
+        }
         
 
     </style>
@@ -51,6 +81,12 @@
     <button id="button2" class="button2 img">
         <img src="button2.png" alt="button2">
     </button>
+    <button id="button3" class="button3 img">
+        <img src="button3.png" alt="button3">
+    </button>
+    <button id="button4" class="button4 img">
+        <img src="button4.png" alt="button4">
+    </button>
     <script>
         
         document.getElementById("button1").addEventListener("click", function() {
@@ -58,6 +94,12 @@
         });
         document.getElementById("button2").addEventListener("click", function() {
             document.location.href = "chrome.html";
+        });
+        document.getElementById("button3").addEventListener("click", function() {
+            document.location.href = "flappyfox.html";
+        });
+        document.getElementById("button4").addEventListener("click", function() {
+            document.location.href = "whackarabbit.html";
         });
     </script>
 </body>

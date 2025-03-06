@@ -89,3 +89,7 @@ setInterval(spawnObject, 1000);
 window.addEventListener("keydown", moveFox);
 window.addEventListener("keyup", stopFox);
 gameLoop();
+
+document.getElementById("buttonhome").addEventListener("click", function() {
+    document.location.href = "index.html";
+});

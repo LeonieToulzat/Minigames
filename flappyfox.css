@@ -7,3 +7,18 @@ body {
 canvas {
     display: block;
 }
+
+.buttonhome img {
+    position: absolute;
+    left: 200px;
+    top: 30px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    
+}
+
+.buttonhome img:hover {
+    width: 70px;
+    height: 70px;
+}
