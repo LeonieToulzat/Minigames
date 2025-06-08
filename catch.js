@@ -3,9 +3,11 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+
+
 const fox = {
     x: canvas.width / 2 - 100,
-    y: canvas.height - 150,
+    y: canvas.height - 200,
     width: 150,
     height: 150,
     images: {
@@ -25,6 +27,8 @@ fox.currentImage = fox.images.normal;
 const objects = [];
 const objectImages = ["egg.png", "chicken.png"];
 let score = 0;
+
+
 
 function spawnObject() {
     const obj = {
@@ -77,6 +81,7 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.font = "40px Pixelify Sans";
     ctx.fillText("Score: " + score, 30, 50);
+
 }
 
 function gameLoop() {
@@ -91,5 +96,5 @@ window.addEventListener("keyup", stopFox);
 gameLoop();
 
 document.getElementById("buttonhome").addEventListener("click", function() {
-    document.location.href = "index.html";
+    document.location.href = "indexinfinite.php";
 });

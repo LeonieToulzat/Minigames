@@ -3,10 +3,11 @@ body {
     overflow: hidden;
     background: url('ground.png') no-repeat center center/cover;
 }
-
 canvas {
     display: block;
+    
 }
+
 
 .buttonhome img {
     position: absolute;

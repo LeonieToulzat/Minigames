@@ -1,79 +1,185 @@
-const rabbits = document.querySelectorAll(".rabbit");
-const fox = document.getElementById("fox");
-const scoreDisplay = document.getElementById("score");
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-let score = 0;
-let currentRabbit = null;
-let gameSpeed = 1800; 
-let gameInterval = null;
 
-const holePositions = [
-    { top: 300, left: 300 },
-    { top: 300, left: 600 },
-    { top: 300, left: 900 },
-    { top: 300, left: 1200 },
-    { top: 600, left: 300 },
-    { top: 600, left: 600 },
-    { top: 600, left: 900 },
-    { top: 600, left: 1200 }
+// Charger les images
+const foxImages = {
+    up: new Image(),
+    down: new Image()
+};
+foxImages.up.src = "foxhammerup.png";
+foxImages.down.src = "foxhammerdown.png";
+
+const rabbitImages = [
+    new Image(), new Image(), new Image()
+];
+rabbitImages[0].src = "rabbit1.png";
+rabbitImages[1].src = "rabbit2.png";
+rabbitImages[2].src = "rabbit3.png";
+
+const holeImage = new Image();
+holeImage.src = "hole.png";
+holeImage.width = 160;
+holeImage.height = 40;
+
+// Positions des trous
+const holes = [
+    { x: 300, y: 300 }, { x: 600, y: 300 }, { x: 900, y: 300 }, { x: 1200, y: 300 },
+    { x: 300, y: 600 }, { x: 600, y: 600 }, { x: 900, y: 600 }, { x: 1200, y: 600 }
 ];
 
-document.querySelectorAll(".hole").forEach((hole, index) => {
-    hole.style.top = holePositions[index].top + "px";
-    hole.style.left = holePositions[index].left + "px";
-    rabbits[index].style.left = "40px"; 
-    rabbits[index].style.top = "-100px";
-});
+let score = 0;
+let gameSpeed = 1800;
+let currentRabbit = null;
+let fox = { x: 400, y: 500, width: 250, height: 250, image: foxImages.up };
 
-document.addEventListener("mousemove", (event) => {
-    fox.style.left = event.clientX - fox.width / 2 + "px";
-    fox.style.top = event.clientY - fox.height / 2 + "px";
+// Dessiner le jeu
+function drawGame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Dessiner les trous
+    holes.forEach(hole => {
+        ctx.drawImage(holeImage, hole.x, hole.y, holeImage.width, holeImage.height);    
+    });
+
+    // Dessiner le lapin (si actif)
+    if (currentRabbit) {
+        ctx.drawImage(currentRabbit.image, currentRabbit.x + 41, currentRabbit.y-135, 80, 137);
+    }
+
+    // Dessiner le renard (suivi souris)
+    ctx.drawImage(fox.image, fox.x, fox.y, fox.width, fox.height);
+
+    // Afficher le score
+    ctx.fillStyle = "white";
+    ctx.font = "40px Pixelify Sans";
+    ctx.fillText("Score: " + score, 30, 50);
+
+    
+}
+/*
+// Choisir un trou aléatoire pour le lapin
+function showRabbit() {
+    if (currentRabbit) return; // Pas plus d'un lapin à la fois
+
+    const index = Math.floor(Math.random() * holes.length);
+    const rabbitType = Math.floor(Math.random() * 3); // Choisir un lapin au hasard
+    currentRabbit = { 
+        x: holes[index].x, 
+        y: holes[index].y, 
+        image: rabbitImages[rabbitType] 
+    };
+
+    setTimeout(() => {
+        currentRabbit = null;
+    }, gameSpeed - 500);
+}*/
+/*
+// Vérifier si le lapin est frappé
+canvas.addEventListener("click", (event) => {
+    if (currentRabbit) {
+        const distX = event.clientX - (currentRabbit.x + 80);
+        const distY = event.clientY - (currentRabbit.y + 137);
+        if (Math.abs(distX) < 40 && Math.abs(distY) < 40) {
+            score++;
+            currentRabbit = null;
+
+            // Augmenter la difficulté
+            if (score % 5 === 0 && gameSpeed > 500) {
+                gameSpeed -= 100;
+                restartGame();
+            }
+        }
+    }
+});*/
+/*
+canvas.addEventListener("click", (event) => {
+    if (currentRabbit) {
+        const distX = event.clientX - (currentRabbit.x + 80);
+        const distY = event.clientY - (currentRabbit.y + 137);
+        if (Math.abs(distX) < 40 && Math.abs(distY) < 40) {
+            score++;
+            currentRabbit = null;
+
+            // Increase difficulty
+            if (score % 5 === 0 && gameSpeed > 500) {
+                gameSpeed -= 100;
+                restartGame();
+            }
+        }
+    }
+});
+*/
+
+let rabbitClickable = true;
+
+canvas.addEventListener("click", (event) => {
+    if (currentRabbit && rabbitClickable) {
+        const distX = event.clientX - (currentRabbit.x + 80);
+        const distY = event.clientY - (currentRabbit.y + 137);
+        if (Math.abs(distX) < 40 && Math.abs(distY) < 40) {
+            score++;
+            rabbitClickable = false; // Prevent multiple clicks
+            currentRabbit = null;
+
+            if (score % 5 === 0 && gameSpeed > 500) {
+                gameSpeed -= 100;
+                restartGame();
+            }
+        }
+    }
 });
 
 function showRabbit() {
-    if (currentRabbit) return; 
-
-    const randomIndex = Math.floor(Math.random() * rabbits.length);
-    currentRabbit = rabbits[randomIndex];
-    currentRabbit.style.display = "block";
+    if (currentRabbit) return;
+    rabbitClickable = true; // Reset clickability
+    const index = Math.floor(Math.random() * holes.length);
+    const rabbitType = Math.floor(Math.random() * 3);
+    currentRabbit = { 
+        x: holes[index].x, 
+        y: holes[index].y, 
+        image: rabbitImages[rabbitType] 
+    };
 
     setTimeout(() => {
-        if (currentRabbit) {
-            currentRabbit.style.display = "none";
-            currentRabbit = null;
-        }
-    }, gameSpeed - 500);
-}
-
-function hitRabbit(event) {
-    if (currentRabbit && event.target === currentRabbit) {
-        score++;
-        scoreDisplay.textContent = "Score: " + score;
-        currentRabbit.style.display = "none";
         currentRabbit = null;
-
-        if (score % 5 === 0 && gameSpeed > 500) {
-            gameSpeed -= 100;
-            restartGame();
-        }
-    }
+    }, Math.max(700, gameSpeed - 500));
 }
 
-document.addEventListener("mousedown", () => {
-    fox.src = "foxhammerdown.png";
-});
-document.addEventListener("mouseup", () => {
-    fox.src = "foxhammerup.png";
+
+// Déplacer le renard avec la souris
+canvas.addEventListener("mousemove", (event) => {
+    fox.x = event.clientX - fox.width / 2;
+    fox.y = event.clientY - fox.height / 2;
 });
 
+// Changer l'image du renard au clic
+canvas.addEventListener("mousedown", () => {
+    fox.image = foxImages.down;
+});
+
+canvas.addEventListener("mouseup", () => {
+    fox.image = foxImages.up;
+});
+
+// Relancer le jeu avec une vitesse plus rapide
 function restartGame() {
     clearInterval(gameInterval);
     gameInterval = setInterval(showRabbit, gameSpeed);
 }
 
-gameInterval = setInterval(showRabbit, gameSpeed);
-document.addEventListener("click", hitRabbit);
+// Lancer le jeu
+let gameInterval = setInterval(showRabbit, gameSpeed);
+function gameLoop() {
+    drawGame();
+    requestAnimationFrame(gameLoop);
+}
+gameLoop();
 
+
+// Bouton Accueil
 document.getElementById("buttonhome").addEventListener("click", function() {
-    document.location.href = "index.html";
+    window.location.href = "indexinfinite.php";
 });

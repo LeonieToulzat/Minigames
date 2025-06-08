@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 
 const fox = {
     x: 200,
-    y: canvas.height - 150,
+    y: canvas.height - 200,
     width: 150,
     height: 150,
     velocityY: 0,
@@ -26,6 +26,8 @@ let speed = 5;
 let gameRunning = true;
 let score = 0;
 let gameOver = false;
+
+
 
 function spawnObstacle() {
     if (speed<=8){
@@ -90,8 +92,8 @@ function update() {
     fox.velocityY += 0.8;
     fox.y += fox.velocityY;
     
-    if (fox.y >= canvas.height - 150) {
-        fox.y = canvas.height - 150;
+    if (fox.y >= canvas.height - 200) {
+        fox.y = canvas.height - 200;
         fox.jumping = false;
         fox.currentImage = fox.images.normal;
     }
@@ -123,7 +125,7 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.font = "40px Pixelify Sans";
     ctx.fillText("Score: " + score, 30, 50);
-    ctx.fillText("Speed: " + speed, 30, 200);
+    //ctx.fillText("Speed: " + speed, 30, 200);
     if (gameOver) {
         ctx.fillText("Game Over", canvas.width / 2 - 50, canvas.height / 2);
     }
@@ -143,5 +145,5 @@ spawnObstacle();
 gameLoop();
 
 document.getElementById("buttonhome").addEventListener("click", function() {
-    document.location.href = "index.html";
+    document.location.href = "indexinfinite.php";
 });

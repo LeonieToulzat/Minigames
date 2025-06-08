@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+
 const fox = {
     x: 150,
     y: canvas.height / 2,
@@ -136,5 +137,5 @@ window.addEventListener("keydown", jump);
 gameLoop();
 
 document.getElementById("buttonhome").addEventListener("click", function() {
-    document.location.href = "index.html";
+    document.location.href = "indexinfinite.php";
 });

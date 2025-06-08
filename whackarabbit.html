@@ -3,31 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="whackarabbit.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="whackarabbit.css">
 </head>
 <body>
     <button id="buttonhome" class="buttonhome img">
         <img src="home.png" alt="home">
     </button>
-    <!--<div id="game-container">-->
-        <img id="background" src="ground.png" alt="Ground">
-        <div id="score">Score: 0</div>
-
-        <div class="hole" id="hole1"><img class="rabbit" id="rabbit1" src="rabbit1.png"></div>
-        <div class="hole" id="hole2"><img class="rabbit" id="rabbit2" src="rabbit2.png"></div>
-        <div class="hole" id="hole3"><img class="rabbit" id="rabbit3" src="rabbit3.png"></div>
-        <div class="hole" id="hole4"><img class="rabbit" id="rabbit4" src="rabbit1.png"></div>
-        <div class="hole" id="hole5"><img class="rabbit" id="rabbit5" src="rabbit2.png"></div>
-        <div class="hole" id="hole6"><img class="rabbit" id="rabbit6" src="rabbit3.png"></div>
-        <div class="hole" id="hole7"><img class="rabbit" id="rabbit7" src="rabbit1.png"></div>
-        <div class="hole" id="hole8"><img class="rabbit" id="rabbit8" src="rabbit2.png"></div>
-
-        <img id="fox" src="foxhammerup.png" alt="Fox">
-    <!--</div>-->
-
+    <canvas id="gameCanvas"></canvas>
     <script src="whackarabbit.js"></script>
 </body>
 </html>

@@ -247,10 +247,11 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.font = "40px Pixelify Sans";
     ctx.fillText("Score: " + Math.floor(score), 30, 50);
-}
 
-draw();
+}
+//draw();
+startGame(); // Start the game when the script loads
 
 document.getElementById("buttonhome").addEventListener("click", function() {
-    document.location.href = "index.html";
+    document.location.href = "indexinfinite.php";
 });
