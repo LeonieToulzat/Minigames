@@ -1,0 +1,70 @@
+/*body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: url("ground.png") no-repeat center;
+    background-size: cover;
+}
+
+#gameArea {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+}
+
+.chicken {
+    width: 100px;
+    height: 100px;
+    background: url("chicken.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+}*/
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('ground.png') no-repeat center center/cover;
+}
+
+canvas {
+    display: block;
+}
+
+.buttonhome img {
+    position: absolute;
+    left: 15%;
+    top: 5%;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    
+}
+
+.buttonhome img:hover {
+    width: 70px;
+    height: 70px;
+}
+
+/* Positionner les poules en cercle */
+#chicken1 { top: 0; left: 150px; }
+#chicken2 { top: 150px; left: 300px; }
+#chicken3 { top: 300px; left: 150px; }
+#chicken4 { top: 150px; left: 0px; }
+
+/* Effet clignotement */
+.active { opacity: 0.6; }
+
+.startButton img {
+    position: absolute;
+    left: 45%;
+    top: 55%;
+    cursor: pointer;
+    width: 78px;
+    height: 36px;
+}
+
+.startButton img:hover {
+    width: 88px;
+    height: 46px;
+}

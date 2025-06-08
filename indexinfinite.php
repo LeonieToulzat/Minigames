@@ -27,8 +27,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button1 img {
             position: absolute;
-            left: 500px;
-            bottom: 200px;
+            left: 20%;
+            bottom: 20%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -42,8 +42,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button2 img {
             position: absolute;
-            left: 900px;
-            bottom: 300px;
+            left: 45%;
+            bottom: 30%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -57,8 +57,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button3 img {
             position: absolute;
-            left: 1300px;
-            bottom: 250px;
+            left: 75%;
+            bottom: 27%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -72,8 +72,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button4 img {
             position: absolute;
-            left: 1200px;
-            bottom: 500px;
+            left: 65%;
+            bottom: 50%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -87,8 +87,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button5 img {
             position: absolute;
-            left: 800px;
-            bottom: 550px;
+            left: 40%;
+            bottom: 60%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -102,8 +102,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button6 img {
             position: absolute;
-            left: 550px;
-            bottom: 700px;
+            left: 28%;
+            bottom: 75%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -117,8 +117,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .button7 img {
             position: absolute;
-            left: 1000px;
-            bottom: 800px;
+            left: 55%;
+            bottom: 85%;
             cursor: pointer;
             width: 80px;
             height: 80px;
@@ -132,8 +132,8 @@ require_once('/opt/lampp/htdocs/dbgame/dbfile.php');
 
         .back img {
             position: absolute;
-            left: 50px;
-            top: 50px;
+            left: 3%;
+            top: 3%;
             cursor: pointer;
             width: 80px;
             height: 80px;

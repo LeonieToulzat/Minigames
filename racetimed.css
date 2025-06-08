@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('ground.png') no-repeat center center/cover;
+}
+canvas {
+    display: block;
+    
+}
+
+.buttonhome img {
+    position: absolute;
+    left: 15%;
+    top: 5%;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    
+}
+
+.buttonhome img:hover {
+    width: 70px;
+    height: 70px;
+}
