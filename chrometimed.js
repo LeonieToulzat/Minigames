@@ -67,7 +67,7 @@ function endGame() {
     const gameId = document.body.dataset.gameid; // or hardcode if needed
     console.log( "Saving score for user: " + username + " with score: " + score + " for game ID: " + gameId);
 
-    fetch("/dbgame/dbfile.php", {
+    fetch("dbfile.php", {
     method: "POST",
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
